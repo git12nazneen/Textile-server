@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Embroidery Kit",
+      "subcategory": "Embroidery",
+      "description": "This comprehensive embroidery kit includes everything you need to create stunning embroidered designs. Perfect for beginners and experienced embroiderers alike.",
+      "img": "https://ibb.co/HDqFYtS",
+      "price": 24.99,
+      "rating": 4.7
+    },
+    {
+      "name": "Knitting Needles Set",
+      "subcategory": "Knitting & Crocheting",
+      "description": "A set of high-quality knitting needles in various sizes, suitable for all your knitting and crocheting projects. Made from durable materials for long-lasting use.",
+      "img": "https://ibb.co/JvPxPK1",
+      "price": 19.99,
+      "rating": 4.5
+    },
+    {
+      "name": "Quilting Fabric Bundle",
+      "subcategory": "Quilting",
+      "description": "Get creative with this assortment of premium quilting fabrics. Perfect for quilting enthusiasts looking to add variety to their projects.",
+      "img": "https://ibb.co/Gx2Tsxg",
+      "price": 39.99,
+      "rating": 4.8
+    },
+    {
+      "name": "Beadwork Starter Kit",
+      "subcategory": "Beadwork",
+      "description": "Start your journey into the world of beadwork with this beginner-friendly kit. Includes a variety of beads, threads, and tools to help you create beautiful beadwork designs.",
+      "img": "https://ibb.co/6bfCCTP",
+      "price": 29.99,
+      "rating": 4.6
+    },
+    {
+      "name": "Tie-Dyeing DIY Kit",
+      "subcategory": "Tie-Dyeing",
+      "description": "Unleash your creativity with this tie-dyeing DIY kit. Experiment with different colors and patterns to create unique tie-dye designs on clothing and accessories.",
+      "img": "https://ibb.co/j8NksvM",
+      "price": 34.99,
+      "rating": 4.9
+    },
+    {
+      "name": "Macrame Plant Hanger",
+      "subcategory": "Macrame",
+      "description": "Add a bohemian touch to your home decor with this handmade macrame plant hanger. Perfect for displaying your favorite indoor plants in style.",
+      "img": "https://ibb.co/dfg8kND",
+      "price": 14.99,
+      "rating": 4.4
+    }
+  ]
+  
