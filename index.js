@@ -32,29 +32,34 @@ async function run() {
     // Connect the client to the server	
     await client.connect();
     //Textile  all collection all api section
-    const textileCollection = client.db('textile').collection('products');
-    // const addCraftCollection = client.db('addCraftDB').collection('craft');
+    // const textileCollection = client.db('textile').collection('products');
+    const addCraftCollection = client.db('addCraftDB').collection('craft');
   //Textile Name  all collection all api section
 
 
-
     // PRODUCT get data client site
-    app.get('/product', async (req, res) => {
-      const query = textileCollection.find();
+    // app.get('/product', async (req, res) => {
+    //   const query = addCraftCollection.find();
+    //   const result = await query.toArray();
+    //   res.send(result);
+    // });
+
+    app.get('/craft', async (req, res) => {
+      const query = addCraftCollection.find();
       const result = await query.toArray();
       res.send(result);
     });
 
-    app.get('/product/:id', async(req, res)=>{
+    app.get('/craft/:id', async(req, res)=>{
       const id = req.params.id;
       const query = {_id: new ObjectId(id)}
-      const result = await textileCollection.findOne(query);
+      const result = await addCraftCollection.findOne(query);
       res.send(result);
     })
 
-    // addcraft data show in client site
+    //addcraft data show in client site
     app.get('/addCraft', async(req, res)=>{
-      const cursor =textileCollection.find();
+      const cursor =addCraftCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     })
@@ -62,15 +67,15 @@ async function run() {
     app.get('/addCraft/:id', async(req, res)=>{
       const id = req.params.id;
       const query = {_id: new ObjectId(id)}
-      const result = await textileCollection.findOne(query);
+      const result = await addCraftCollection.findOne(query);
       res.send(result);
     })
 
     // set the data in the mongo
     app.post('/addCraft', async(req, res)=>{
-      const textile = req.body;
-      console.log(textile)
-      const result = await textileCollection.insertOne(textile);
+      const addedCraft = req.body;
+      console.log(addedCraft)
+      const result = await addCraftCollection.insertOne(addedCraft);
       res.send(result);
     })
 
