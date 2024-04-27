@@ -29,11 +29,12 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to the server	
     await client.connect();
-    //Restaurants  all collection all api section
+    //Textile  all collection all api section
     const textileCollection = client.db('textile').collection('products');
-  //Restaurants Name  all collection all api section
+    // const addCraftCollection = client.db('addCraftDB').collection('craft');
+  //Textile Name  all collection all api section
 
 
 
@@ -44,14 +45,36 @@ async function run() {
       res.send(result);
     });
 
-    //fetch all data here
-   
+    app.get('/product/:id', async(req, res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)}
+      const result = await textileCollection.findOne(query);
+      res.send(result);
+    })
 
-    app.post('/review/:id', async (req, res) => {
-        const review = req.body;
-        const result = await reviewCollection.insertOne(review);
-        res.send(result);
-      });
+    // addcraft data show in client site
+    app.get('/addCraft', async(req, res)=>{
+      const cursor =textileCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    app.get('/addCraft/:id', async(req, res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)}
+      const result = await textileCollection.findOne(query);
+      res.send(result);
+    })
+
+    // set the data in the mongo
+    app.post('/addCraft', async(req, res)=>{
+      const textile = req.body;
+      console.log(textile)
+      const result = await textileCollection.insertOne(textile);
+      res.send(result);
+    })
+
+    
 
  
   } finally {
