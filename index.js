@@ -36,14 +36,6 @@ async function run() {
     const addCraftCollection = client.db('addCraftDB').collection('craft');
   //Textile Name  all collection all api section
 
-
-    // PRODUCT get data client site
-    // app.get('/product', async (req, res) => {
-    //   const query = addCraftCollection.find();
-    //   const result = await query.toArray();
-    //   res.send(result);
-    // });
-
     app.get('/craft', async (req, res) => {
       const query = addCraftCollection.find();
       const result = await query.toArray();
@@ -78,8 +70,6 @@ async function run() {
       const result = await addCraftCollection.insertOne(addedCraft);
       res.send(result);
     })
-
-    
 
  
   } finally {
