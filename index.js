@@ -81,8 +81,25 @@ async function run() {
 
     app.put('/addCraft/:id', async(req, res)=>{
       const id = req.params.id;
-      const updatedCraft = req.body;
-      console.log(updatedCraft)
+      const craft = req.body;
+      console.log(id ,craft)
+      const filter = {_id: new ObjectId(id)}
+      const options = {upsert: true}
+      const updatedCraft = {
+        $set: {
+          item_name:craft.item_name,
+          subcategory_Name:craft.subcategory_Name,
+           short_description:craft.short_description,
+           price:craft.price,
+            rating:craft.rating,
+             processing_time:craft.processing_time,
+              customization:craft.customization,
+               stockStatus:craft.stockStatus,
+                image:craft.image,
+        }
+      }
+      const result = await addCraftCollection.updateOne(filter, updatedCraft, options);
+      res.send(result)
     })
  
   } finally {
