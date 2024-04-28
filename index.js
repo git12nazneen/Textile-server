@@ -71,6 +71,19 @@ async function run() {
       res.send(result);
     })
 
+    app.delete('/addCraft/:id',async (req, res)=>{
+      const id = req.params.id;
+      console.log('delete id plzzz', id);
+      const query = { _id: new ObjectId(id)};
+      const result = await addCraftCollection.deleteOne(query)
+      res.send(result)
+    })
+
+    app.put('/addCraft/:id', async(req, res)=>{
+      const id = req.params.id;
+      const updatedCraft = req.body;
+      console.log(updatedCraft)
+    })
  
   } finally {
     // Ensures that the client will close when you finish/error
