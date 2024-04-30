@@ -34,6 +34,8 @@ async function run() {
     //Textile  all collection all api section
     // const textileCollection = client.db('textile').collection('products');
     const addCraftCollection = client.db('addCraftDB').collection('craft');
+    const subCategoryCollection = client.db('addCraftDB').collection('subcategory');
+ 
   //Textile Name  all collection all api section
 
     app.get('/craft', async (req, res) => {
@@ -102,6 +104,15 @@ async function run() {
       res.send(result)
     })
  
+
+    // find sub category
+    app.get('/subcategory', async (req, res) => {
+      const query = subCategoryCollection.find();
+      const result = await query.toArray();
+      res.send(result);
+    });
+
+
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
